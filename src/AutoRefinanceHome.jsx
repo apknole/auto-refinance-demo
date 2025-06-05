@@ -55,14 +55,14 @@ function Header() {
 function HomeScreen() {
   return (
     <div className="flex flex-col items-center justify-center text-center px-4 py-20">
-      <h1 className="text-3xl md:text-5xl font-bold mb-6">Lower Your Car Payment. In Minutes.</h1>
+      <h1 className="text-3xl md:text-5xl font-bold mb-6">Ready To Lower Your Car Payment?</h1>
 
       <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-xl">
-        Refinance your high-interest auto loan with ease and keep more money in your pocket. 💸
+        Refinance your high-interest auto loan with ease and keep more money in your pocket.
       </p>
 
       <div className="text-left text-gray-600 max-w-xl space-y-2 mb-8">
-        <p>✅ Pay less interest on your current loan</p>
+        <p>✅ Pay less interest on your current loan 💸</p>
         <p>✅ Improve your overall financial health 💪</p>
         <p>✅ Earn rewards every time you repay on time 🎁</p>
       </div>
