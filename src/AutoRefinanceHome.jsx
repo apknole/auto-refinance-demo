@@ -56,9 +56,11 @@ function Header() {
 function HomeScreen() {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen text-center px-4 pt-10 pb-6 md:pt-6 md:pb-4">
-      <h1 className="text-3xl md:text-5xl font-bold mb-6">Want a Lower Car Payment?</h1>
+      <h1 className="text-3xl md:text-5xl font-bold mb-6">
+        Want a Lower Car Payment?
+      </h1>
 
-      <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-xl">
+      <p className="text-lg md:text-xl text-gray-600 mb-6 max-w-xl">
         Refinance your high-interest auto loan with ease and keep more money in your pocket.
       </p>
 
@@ -75,9 +77,11 @@ function HomeScreen() {
         Start Application
       </Link>
 
-      <p className="mt-6 text-sm text-gray-500" mb-8>In partnership with your trusted Credit Union 🏦</p>
+      <p className="text-sm text-gray-500 mb-10">
+        In partnership with your trusted Credit Union 🏦
+      </p>
 
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-left max-w-xl mb-8 shadow-sm">
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-left max-w-xl mb-10 shadow-sm">
         <h2 className="text-lg font-semibold mb-2">How it works 🚗</h2>
         <ol className="list-decimal list-inside space-y-2 text-gray-700">
           <li>Connect your data and automatically apply 🔗</li>
@@ -87,9 +91,13 @@ function HomeScreen() {
         </ol>
       </div>
 
-      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 text-left max-w-xl mb-8 rounded-md shadow-sm">
-        <p className="italic text-gray-800">“I couldn’t believe how fast it was to refinance. I paid off my high-rate loan using the virtual card, and my credit union gave me a much better rate. Earning rewards for paying back? That’s a win-win.”</p>
-        <p className="mt-2 text-sm text-blue-800 font-semibold">– Debbie Stone, ABCU Member</p>
+      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 text-left max-w-xl mb-10 rounded-md shadow-sm">
+        <p className="italic text-gray-800">
+          “I couldn’t believe how fast it was to refinance. I paid off my high-rate loan using the virtual card, and my credit union gave me a much better rate. Earning rewards for paying back? That’s a win-win.”
+        </p>
+        <p className="mt-2 text-sm text-blue-800 font-semibold">
+          – Debbie Stone, ABCU Member
+        </p>
       </div>
     </div>
   );
