@@ -123,9 +123,6 @@ function LoadingScreen() {
   );
 }
 
-export default LoadingScreen;
-
-
 // 🎉 Approval Screen
 function StatusScreen() {
   const navigate = useNavigate();
