@@ -94,41 +94,35 @@ function LoadingScreen() {
   }, [navigate]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-white text-center px-4">
-      <p className="text-xl font-semibold mb-6">We're processing your application...</p>
-      
-      {/* Road */}
-      <div className="relative w-full max-w-md h-24 overflow-hidden bg-gray-100 rounded-md shadow-inner">
-        <div className="absolute w-full h-1 bg-gray-300 top-1/2 transform -translate-y-1/2" />
-        
-        {/* Animated Car */}
-        <div className="absolute left-[-150px] animate-drive">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 80 40"
-            className="w-32 h-16 text-blue-600 fill-current"
-          >
-            <rect x="10" y="15" width="60" height="12" rx="2" />
-            <rect x="25" y="8" width="30" height="10" rx="2" />
-            <circle cx="22" cy="30" r="5" fill="black" />
-            <circle cx="58" cy="30" r="5" fill="black" />
-          </svg>
-        </div>
+    <div className="flex flex-col items-center justify-center h-screen bg-white text-center px-4 overflow-hidden">
+      <p className="text-xl font-semibold mb-8">We're processing your application</p>
+      <div className="relative w-full max-w-lg h-24">
+        <div className="absolute animate-drive1 text-3xl">🚗</div>
+        <div className="absolute animate-drive2 text-3xl">🚙</div>
+        <div className="absolute animate-drive3 text-3xl">🚕</div>
       </div>
-
-      {/* Animation Styles */}
       <style>
         {`
-          @keyframes drive {
-            0% { left: -150px; transform: rotate(0deg); }
-            25% { transform: rotate(-1deg); }
-            50% { transform: rotate(1deg); }
-            75% { transform: rotate(-0.5deg); }
-            100% { left: 100%; transform: rotate(0deg); }
+          @keyframes drive1 {
+            0% { left: -10%; top: 0; }
+            100% { left: 110%; top: 0; }
           }
-
-          .animate-drive {
-            animation: drive 3s ease-in-out forwards;
+          @keyframes drive2 {
+            0% { left: -10%; top: 30%; }
+            100% { left: 110%; top: 30%; }
+          }
+          @keyframes drive3 {
+            0% { left: -10%; top: 60%; }
+            100% { left: 110%; top: 60%; }
+          }
+          .animate-drive1 {
+            animation: drive1 3s linear forwards;
+          }
+          .animate-drive2 {
+            animation: drive2 3s linear forwards;
+          }
+          .animate-drive3 {
+            animation: drive3 3s linear forwards;
           }
         `}
       </style>
