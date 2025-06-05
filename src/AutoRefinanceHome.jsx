@@ -82,22 +82,15 @@ function ConsentScreen() {
 
 // ⏳ Loading Screen (stub)
 function LoadingScreen() {
-  const navigate = useNavigate();
-
-  // Redirect after 3 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => navigate("/status"), 3000);
-    return () => clearTimeout(timer);
-  }, [navigate]);
-
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
-      <div className="relative w-full max-w-md h-40 overflow-hidden">
-        <div className="absolute top-1/2 left-[-100px] animate-carDrive">
-          <span role="img" aria-label="car" className="text-4xl">🚗</span>
+    <div className="flex flex-col items-center justify-center h-screen bg-blue-50 px-4 text-center">
+      <div className="text-2xl font-semibold mb-6">We're matching you with the best auto refinance offer...</div>
+      <div className="relative w-full max-w-md h-32 overflow-hidden">
+        <div className="absolute left-[-100px] animate-car-move">
+          <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Car" className="w-20 h-20" />
         </div>
-        <p className="text-center mt-32 text-lg text-gray-600">Finding your auto loan details...</p>
       </div>
+      <div className="text-sm text-gray-500 mt-4">Hang tight — this should only take a few seconds.</div>
     </div>
   );
 }
