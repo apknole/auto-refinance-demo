@@ -55,7 +55,7 @@ function Header() {
 // 🏠 Home Screen
 function HomeScreen() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 md:py-6">
+    <div className="flex flex-col items-center justify-start min-h-screen text-center px-4 pt-10 pb-6 md:pt-6 md:pb-4">
       <h1 className="text-3xl md:text-5xl font-bold mb-6">Want a Lower Car Payment?</h1>
 
       <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-xl">
@@ -106,7 +106,7 @@ function ConsentScreen() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 md:py-6">
+    <<div className="flex flex-col items-center justify-start min-h-screen text-center px-4 pt-10 pb-6 md:pt-6 md:pb-4">
       <h1 className="text-3xl font-bold mb-4">Consent to Share Data</h1>
       <p className="text-gray-600 max-w-md mb-6">
         By continuing, you agree to share your past debt repayment and savings data with our trusted credit union partner to explore refinance options.
@@ -200,7 +200,7 @@ function LoadingScreen() {
 function StatusScreen() {
   const navigate = useNavigate();
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 md:py-6">
+    <div className="relative flex flex-col items-center justify-start text-center px-4 pt-10 pb-6 md:pt-6 md:pb-4 min-h-screen">
       <Confetti />
       <h2 className="text-3xl font-bold mb-4">You’re Approved!</h2>
       <p className="text-gray-600 mb-6 max-w-lg">Read and accept your loan offer, then payoff your current loan with your new virutal card.</p>
@@ -234,7 +234,7 @@ function VirtualCard() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 md:py-6">
+    <div className="flex flex-col items-center justify-start min-h-screen bg-gray-50 px-4 pt-10 pb-6 md:pt-6 md:pb-4">
       {!acceptedTerms && (
   <div className="bg-white shadow-md rounded-lg p-6 max-w-lg w-full mb-8">
     <h1 className="text-2xl font-bold text-center mb-4">Loan Offer Summary</h1>
@@ -405,7 +405,7 @@ function TransactionHistory() {
   ];
 
   return (
-    <div className="px-4 py-12">
+    <div className="px-4 pt-10 pb-6 md:pt-6 md:pb-4 min-h-screen">
       <h2 className="text-2xl font-bold text-center mb-6">Transaction History</h2>
       <div className="max-w-xl mx-auto bg-white shadow rounded-lg overflow-hidden">
         <table className="w-full text-left text-sm">
