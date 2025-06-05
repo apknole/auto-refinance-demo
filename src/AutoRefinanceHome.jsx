@@ -95,29 +95,40 @@ function LoadingScreen() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-white text-center px-4">
-      <p className="text-xl font-semibold mb-6">We're processing your application</p>
-      <div className="relative w-full max-w-md h-24 overflow-hidden">
-        <div className="absolute bottom-0 left-[-200px] animate-drive">
+      <p className="text-xl font-semibold mb-6">We're processing your application...</p>
+      
+      {/* Road */}
+      <div className="relative w-full max-w-md h-24 overflow-hidden bg-gray-100 rounded-md shadow-inner">
+        <div className="absolute w-full h-1 bg-gray-300 top-1/2 transform -translate-y-1/2" />
+        
+        {/* Animated Car */}
+        <div className="absolute left-[-150px] animate-drive">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 64 32"
+            viewBox="0 0 80 40"
             className="w-32 h-16 text-blue-600 fill-current"
           >
-            <circle cx="16" cy="28" r="4" />
-            <circle cx="48" cy="28" r="4" />
-            <rect x="8" y="12" width="48" height="12" rx="3" />
-            <rect x="18" y="6" width="16" height="8" rx="2" />
+            <rect x="10" y="15" width="60" height="12" rx="2" />
+            <rect x="25" y="8" width="30" height="10" rx="2" />
+            <circle cx="22" cy="30" r="5" fill="black" />
+            <circle cx="58" cy="30" r="5" fill="black" />
           </svg>
         </div>
       </div>
+
+      {/* Animation Styles */}
       <style>
         {`
           @keyframes drive {
-            0% { left: -200px; }
-            100% { left: 100%; }
+            0% { left: -150px; transform: rotate(0deg); }
+            25% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
+            75% { transform: rotate(-0.5deg); }
+            100% { left: 100%; transform: rotate(0deg); }
           }
+
           .animate-drive {
-            animation: drive 3s linear forwards;
+            animation: drive 3s ease-in-out forwards;
           }
         `}
       </style>
