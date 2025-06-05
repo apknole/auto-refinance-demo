@@ -3,10 +3,10 @@
 @tailwind utilities;
 @keyframes car-move {
   0% {
-    left: 100%;
+    left: -100px;
   }
   100% {
-    left: -200px;
+    left: 100%;
   }
 }
 
