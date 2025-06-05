@@ -56,16 +56,16 @@ function Header() {
 function HomeScreen() {
   return (
     <div className="flex flex-col items-center justify-center text-center px-4 py-20">
-      <h1 className="text-3xl md:text-5xl font-bold mb-6">Ready To Lower Your Car Payment?</h1>
+      <h1 className="text-3xl md:text-5xl font-bold mb-6">Want a Lower Car Payment?</h1>
 
       <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-xl">
         Refinance your high-interest auto loan with ease and keep more money in your pocket.
       </p>
 
       <div className="text-left text-gray-600 max-w-xl space-y-2 mb-8">
-        <p>✅ Pay less interest on your current loan 💸</p>
-        <p>✅ Improve your overall financial health 💪</p>
-        <p>✅ Earn rewards every time you repay on time 🎁</p>
+        <p>✅ Pay less interest on your car loan 💸</p>
+        <p>✅ Improve your financial health 💪</p>
+        <p>✅ Earn rewards for on-time payments 🎁</p>
       </div>
 
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-left max-w-xl mb-8 shadow-sm">
@@ -79,7 +79,7 @@ function HomeScreen() {
 
       <div className="bg-blue-50 border-l-4 border-blue-500 p-4 text-left max-w-xl mb-8 rounded-md shadow-sm">
         <p className="italic text-gray-800">“I couldn’t believe how fast it was to refinance. I paid off my high-rate loan using the virtual card, and my credit union gave me a much better rate. Earning rewards for paying back? That’s a win-win.”</p>
-        <p className="mt-2 text-sm text-blue-800 font-semibold">– Maria R., Happy Member</p>
+        <p className="mt-2 text-sm text-blue-800 font-semibold">– Debbie Stone., ABCU Member</p>
       </div>
 
       <Link
