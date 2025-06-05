@@ -81,7 +81,10 @@ function ConsentScreen() {
 }
 
 // ⏳ Loading Screen (stub)
-function LoadingScreen() {
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+export default function LoadingScreen() {
   const navigate = useNavigate();
 
   useEffect(() => {
