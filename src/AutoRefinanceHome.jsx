@@ -216,6 +216,8 @@ function VirtualCard() {
   const [cardVisible, setCardVisible] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [copiedField, setCopiedField] = useState("");
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  const [hasAgreedToTerms, setHasAgreedToTerms] = useState(false);
 
   const cardData = {
     number: "1234 5678 9012 3456",
@@ -234,46 +236,87 @@ function VirtualCard() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4 py-10">
       {!acceptedTerms && (
-        <div className="bg-white shadow-md rounded-lg p-6 max-w-lg w-full mb-8">
-  <h1 className="text-2xl font-bold text-center mb-4">Loan Offer Summary</h1>
-  <table className="w-full text-sm text-gray-700 mb-6">
-    <tbody>
-      <tr className="border-b">
-        <td className="py-2 font-medium w-1/3">Refinance Amount</td>
-        <td className="py-2 text-right">$12,500.00</td>
-      </tr>
-      <tr className="border-b">
-        <td className="py-2 font-medium">Interest Rate (APR)</td>
-        <td className="py-2 text-right">5.99%</td>
-      </tr>
-      <tr className="border-b">
-        <td className="py-2 font-medium">Loan Term</td>
-        <td className="py-2 text-right">36 months</td>
-      </tr>
-      <tr>
-        <td className="py-2 font-medium">Monthly Payment</td>
-        <td className="py-2 text-right">$379.50</td>
-      </tr>
-    </tbody>
-  </table>
+  <div className="bg-white shadow-md rounded-lg p-6 max-w-lg w-full mb-8">
+    <h1 className="text-2xl font-bold text-center mb-4">Loan Offer Summary</h1>
+    <table className="w-full text-sm text-gray-700 mb-6">
+      <tbody>
+        <tr className="border-b">
+          <td className="py-2 font-medium w-1/3">Refinance Amount</td>
+          <td className="py-2 text-right">$12,500.00</td>
+        </tr>
+        <tr className="border-b">
+          <td className="py-2 font-medium">Interest Rate (APR)</td>
+          <td className="py-2 text-right">5.99%</td>
+        </tr>
+        <tr className="border-b">
+          <td className="py-2 font-medium">Loan Term</td>
+          <td className="py-2 text-right">36 months</td>
+        </tr>
+        <tr>
+          <td className="py-2 font-medium">Monthly Payment</td>
+          <td className="py-2 text-right">$379.50</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <div className="text-sm text-gray-600 space-y-1 mb-6">
-    <p><strong>Refinance Amount</strong>: The amount used to pay off your existing auto loan.</p>
-    <p><strong>Interest Rate (APR)</strong>: The annual rate charged for borrowing, including fees.</p>
-    <p><strong>Loan Term</strong>: The length of your new loan.</p>
-    <p><strong>Monthly Payment</strong>: What you'll pay each month under this new loan.</p>
-  </div>
+    <div className="text-sm text-gray-600 space-y-1 mb-4">
+      <p>
+        <button
+          className="underline text-blue-600 hover:text-blue-800"
+          onClick={() => setShowTermsModal(true)}
+        >
+          View Full Terms
+        </button>
+      </p>
+      <label className="flex items-center mt-2">
+        <input
+          type="checkbox"
+          className="mr-2"
+          checked={hasAgreedToTerms}
+          onChange={() => setHasAgreedToTerms(!hasAgreedToTerms)}
+        />
+        I have read and agree to the full loan terms
+      </label>
+    </div>
 
-  <div className="text-center">
-    <button
-      className="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700"
-      onClick={() => setAcceptedTerms(true)}
-    >
-      Accept Terms and Unlock Card
-    </button>
+    <div className="text-center">
+      <button
+        disabled={!hasAgreedToTerms}
+        className={`px-6 py-2 rounded-md text-sm font-medium ${
+          hasAgreedToTerms
+            ? "bg-blue-600 text-white hover:bg-blue-700"
+            : "bg-gray-300 text-gray-500 cursor-not-allowed"
+        }`}
+        onClick={() => setAcceptedTerms(true)}
+      >
+        Accept Terms and Unlock Card
+      </button>
+    </div>
   </div>
-</div>
-      )}
+)}
+      {showTermsModal && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white rounded-lg p-6 max-w-lg w-full shadow-lg">
+      <h2 className="text-xl font-bold mb-4">Full Loan Terms</h2>
+      <div className="text-sm text-gray-700 space-y-3 max-h-72 overflow-y-auto mb-6">
+        <p>This loan is offered by your participating credit union to help you refinance your existing auto loan.</p>
+        <p>The refinance amount of $12,500 will be disbursed using a virtual card to pay off your current lender.</p>
+        <p>The interest rate is fixed at 5.99% APR, with a 36-month repayment period.</p>
+        <p>Monthly payments of $379.50 will be due starting the following month.</p>
+        <p>Rewards may be earned for each on-time payment, and your payment history will be reported to credit bureaus.</p>
+        <p>For full details about prepayment, late fees, and disclosures, please refer to your credit union’s official agreement.</p>
+      </div>
+      <div className="text-center">
+        <button
+          className="bg-blue-600 text-white px-5 py-2 rounded-md text-sm hover:bg-blue-700"
+          onClick={() => setShowTermsModal(false)}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
 
       {acceptedTerms && (
         <>
