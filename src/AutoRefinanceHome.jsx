@@ -95,34 +95,41 @@ function LoadingScreen() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-white text-center px-4 overflow-hidden">
-      <p className="text-xl font-semibold mb-8">We're processing your application</p>
-      <div className="relative w-full max-w-lg h-24">
-        <div className="absolute animate-drive1 text-3xl">🚗</div>
-        <div className="absolute animate-drive2 text-3xl">🚙</div>
-        <div className="absolute animate-drive3 text-3xl">🚕</div>
+      <h1 className="text-3xl md:text-4xl font-bold mb-3">We're processing your application</h1>
+      <p className="text-gray-600 mb-10 text-lg max-w-md">
+        Hang tight! Matching you with the best refinance offer.
+      </p>
+      <div className="relative w-full max-w-lg h-32">
+        <div className="absolute animate-car1 text-4xl">🚗</div>
+        <div className="absolute animate-car2 text-4xl">🚙</div>
+        <div className="absolute animate-car3 text-4xl">🚕</div>
       </div>
       <style>
         {`
-          @keyframes drive1 {
+          @keyframes car1 {
             0% { left: -10%; top: 0; }
+            50% { left: 50%; top: 5%; }
             100% { left: 110%; top: 0; }
           }
-          @keyframes drive2 {
-            0% { left: -10%; top: 30%; }
-            100% { left: 110%; top: 30%; }
+          @keyframes car2 {
+            0% { left: -10%; top: 40%; }
+            30% { left: 35%; top: 42%; }
+            80% { left: 90%; top: 35%; }
+            100% { left: 110%; top: 40%; }
           }
-          @keyframes drive3 {
-            0% { left: -10%; top: 60%; }
-            100% { left: 110%; top: 60%; }
+          @keyframes car3 {
+            0% { left: -10%; top: 70%; }
+            60% { left: 70%; top: 65%; }
+            100% { left: 110%; top: 70%; }
           }
-          .animate-drive1 {
-            animation: drive1 3s linear forwards;
+          .animate-car1 {
+            animation: car1 3s ease-in-out forwards;
           }
-          .animate-drive2 {
-            animation: drive2 3s linear forwards;
+          .animate-car2 {
+            animation: car2 3s ease-in-out forwards;
           }
-          .animate-drive3 {
-            animation: drive3 3s linear forwards;
+          .animate-car3 {
+            animation: car3 3s ease-in-out forwards;
           }
         `}
       </style>
