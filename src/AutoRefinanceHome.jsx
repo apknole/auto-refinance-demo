@@ -391,6 +391,15 @@ function VirtualCard() {
             >
               Add to Google Pay
             </button>
+            <div className="max-w-md mt-8 text-center text-gray-700 text-sm">
+  <p className="mb-2">
+    Please use this virtual card to <strong>pay off your current auto loan directly with your existing lender or auto dealer</strong>.
+  </p>
+  <p>
+    <strong>Note:</strong> This card is restricted and will <span className="text-red-600 font-semibold">not work</span> at general merchants.
+    It can only be used to complete a loan payoff with a verified auto lender.
+  </p>
+</div>
           </div>
         </>
       )}
