@@ -234,24 +234,45 @@ function VirtualCard() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4 py-10">
       {!acceptedTerms && (
-        <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold mb-2">Loan Offer Summary</h1>
-          <p className="text-gray-700 max-w-md text-sm mb-4">
-            ✅ Refinance amount: <strong>{cardData.balance}</strong><br />
-            ✅ New interest rate: <strong>5.99% APR</strong><br />
-            ✅ Term: <strong>36 months</strong><br />
-            ✅ Monthly payment: <strong>$379.50</strong><br />
-          </p>
-          <p className="text-sm text-gray-600 mb-4">
-            Please review and accept the terms to unlock your virtual card.
-          </p>
-          <button
-            className="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700"
-            onClick={() => setAcceptedTerms(true)}
-          >
-            Accept Terms and Unlock Card
-          </button>
-        </div>
+        <div className="bg-white shadow-md rounded-lg p-6 max-w-lg w-full mb-8">
+  <h1 className="text-2xl font-bold text-center mb-4">Loan Offer Summary</h1>
+  <table className="w-full text-sm text-gray-700 mb-6">
+    <tbody>
+      <tr className="border-b">
+        <td className="py-2 font-medium w-1/3">Refinance Amount</td>
+        <td className="py-2 text-right">$12,500.00</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 font-medium">Interest Rate (APR)</td>
+        <td className="py-2 text-right">5.99%</td>
+      </tr>
+      <tr className="border-b">
+        <td className="py-2 font-medium">Loan Term</td>
+        <td className="py-2 text-right">36 months</td>
+      </tr>
+      <tr>
+        <td className="py-2 font-medium">Monthly Payment</td>
+        <td className="py-2 text-right">$379.50</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div className="text-sm text-gray-600 space-y-1 mb-6">
+    <p><strong>Refinance Amount</strong>: The amount used to pay off your existing auto loan.</p>
+    <p><strong>Interest Rate (APR)</strong>: The annual rate charged for borrowing, including fees.</p>
+    <p><strong>Loan Term</strong>: The length of your new loan.</p>
+    <p><strong>Monthly Payment</strong>: What you'll pay each month under this new loan.</p>
+  </div>
+
+  <div className="text-center">
+    <button
+      className="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700"
+      onClick={() => setAcceptedTerms(true)}
+    >
+      Accept Terms and Unlock Card
+    </button>
+  </div>
+</div>
       )}
 
       {acceptedTerms && (
