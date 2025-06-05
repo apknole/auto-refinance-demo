@@ -120,24 +120,38 @@ function StatusScreen() {
 // 💳 Virtual Card Screen
 function VirtualCard() {
   return (
-    <div className="flex flex-col items-center px-4 py-16 text-center">
-      <h2 className="text-2xl font-bold mb-4">Your Virtual Card</h2>
-      <p className="text-gray-600 mb-6 max-w-md">Use this card to pay off your existing loan. It works only with verified auto dealers.</p>
-      <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-xl px-6 py-8 w-full max-w-sm shadow-lg mb-6">
-        <div className="text-left text-sm">AutoRefinance</div>
-        <div className="text-xl font-mono mt-4 tracking-widest">4111 1111 1111 1234</div>
-        <div className="flex justify-between mt-4 text-sm">
-          <div>12/27</div>
-          <div>CVV: 123</div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
+      <div className="bg-gradient-to-br from-blue-700 to-indigo-600 text-white rounded-2xl w-full max-w-sm p-6 shadow-lg relative">
+        <div className="text-sm mb-1">AutoRefinance</div>
+        <div className="text-lg font-semibold tracking-widest mb-6">1234 5678 9012 3456</div>
+        <div className="flex justify-between text-xs mb-2">
+          <div>
+            <div className="uppercase text-gray-200 text-[10px]">Cardholder</div>
+            <div className="font-medium text-sm">Keith Stone</div>
+          </div>
+          <div>
+            <div className="uppercase text-gray-200 text-[10px]">Exp</div>
+            <div className="font-medium text-sm">12/27</div>
+          </div>
         </div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" className="h-6 mt-4 ml-auto" />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
+          alt="Mastercard"
+          className="w-12 absolute bottom-4 right-4"
+        />
       </div>
-      <div className="flex flex-col gap-2">
-        <button className="bg-black text-white px-4 py-2 rounded-md">Add to Apple Wallet</button>
-        <button className="bg-black text-white px-4 py-2 rounded-md">Add to Google Wallet</button>
+
+      <div className="mt-8 text-center text-gray-700 text-sm max-w-xs">
+        This virtual card can only be used to pay off your existing auto loan. It works exclusively with verified auto dealerships.
+      </div>
+
+      <div className="flex flex-col items-center gap-3 mt-6">
+        <button className="bg-blue-600 text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+          Add to Apple Wallet / Google Pay
+        </button>
         <button
-          onClick={() => navigator.clipboard.writeText("4111111111111234")}
-          className="text-sm text-blue-600 underline mt-2"
+          className="border border-gray-300 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100"
+          onClick={() => navigator.clipboard.writeText("1234 5678 9012 3456")}
         >
           Copy Card Number
         </button>
