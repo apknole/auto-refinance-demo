@@ -154,7 +154,7 @@ function LoadingScreen() {
   }, [navigate]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 md:py-6">
+    <div className="flex flex-col items-center justify-start min-h-screen text-center px-4 pt-10 pb-6 md:pt-6 md:pb-4">
       <h1 className="text-3xl md:text-4xl font-bold mb-3">We're processing your application</h1>
       <p className="text-gray-600 mb-10 text-lg max-w-md">
         Hang tight! We're gathering your data and your credit union is making a decision.
