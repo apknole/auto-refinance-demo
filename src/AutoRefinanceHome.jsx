@@ -160,9 +160,9 @@ function LoadingScreen() {
         Hang tight! We're gathering your data and your credit union is making a decision.
       </p>
       <div className="relative w-full max-w-lg h-32">
-        <div className="absolute animate-car1 text-4xl transform -scale-x-100">🚗💨</div>
-        <div className="absolute animate-car2 text-4xl transform -scale-x-100">🚙💨</div>
-        <div className="absolute animate-car3 text-4xl transform -scale-x-100">🚕💨</div>
+        <div className="absolute animate-car1 text-4xl">🚗💨</div>
+        <div className="absolute animate-car2 text-4xl">🚙💨</div>
+        <div className="absolute animate-car3 text-4xl">🛻💨</div>
       </div>
       <style>
         {`
