@@ -303,11 +303,6 @@ function VirtualCard() {
                 </div>
               </div>
             </div>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
-              alt="Mastercard"
-              className="w-12 absolute bottom-4 right-4"
-            />
           </div>
 
           <div className="grid gap-3 w-full max-w-sm">
