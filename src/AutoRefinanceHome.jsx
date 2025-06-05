@@ -203,9 +203,9 @@ function StatusScreen() {
     <div className="relative flex flex-col items-center text-center px-4 py-20">
       <Confetti />
       <h2 className="text-3xl font-bold mb-4">You’re Approved!</h2>
-      <p className="text-gray-600 mb-6 max-w-lg">Your new loan is ready. Let’s help you pay off the old one.</p>
+      <p className="text-gray-600 mb-6 max-w-lg">Read and accept your loan offer, then payoff your current loan with your new virutal card.</p>
       <button onClick={() => navigate("/card")} className="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700">
-        Access Your Card
+        View Loan Offer
       </button>
     </div>
   );
