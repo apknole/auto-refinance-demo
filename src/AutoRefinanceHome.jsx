@@ -212,8 +212,6 @@ function StatusScreen() {
 }
 
 // 💳 Virtual Card Screen
-import { useState } from "react";
-
 function VirtualCard() {
   const [showDetails, setShowDetails] = useState(false);
   const cardNumber = "1234 5678 9012 3456";
@@ -295,9 +293,6 @@ function VirtualCard() {
     </div>
   );
 }
-
-export default VirtualCard;
-
 
 // 📜 Transactions + Rewards
 function TransactionHistory() {
