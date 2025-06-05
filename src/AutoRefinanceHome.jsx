@@ -236,21 +236,21 @@ function VirtualCard() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4 py-10">
-      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md text-center space-y-4">
-        <h2 className="text-2xl font-bold mb-2">Your Refinance Offer</h2>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4 py-10">
+      <div className="bg-white/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-lg text-center space-y-6 border border-white/50">
+        <h2 className="text-3xl font-bold text-gray-900">Your Refinance Offer</h2>
 
-        <div className="text-sm text-left text-gray-700">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-left text-gray-700">
           <p><strong>Balance:</strong> {cardData.balance}</p>
           <p><strong>Rate:</strong> {cardData.rate}</p>
           <p><strong>Term:</strong> {cardData.term}</p>
-          <p><strong>Est. Monthly Payment:</strong> {cardData.estMonthly}</p>
+          <p><strong>Monthly:</strong> {cardData.estMonthly}</p>
         </div>
 
         {!termsAccepted && (
           <button
             onClick={() => setTermsAccepted(true)}
-            className="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 w-full"
+            className="w-full bg-blue-600 text-white py-3 rounded-md font-medium hover:bg-blue-700 transition"
           >
             Accept Loan Terms
           </button>
@@ -259,7 +259,7 @@ function VirtualCard() {
         {termsAccepted && !cardUnlocked && (
           <button
             onClick={() => setCardUnlocked(true)}
-            className="bg-green-600 text-white px-5 py-2 rounded-md hover:bg-green-700 w-full"
+            className="w-full bg-green-600 text-white py-3 rounded-md font-medium hover:bg-green-700 transition"
           >
             Unlock Card
           </button>
@@ -267,42 +267,44 @@ function VirtualCard() {
 
         {cardUnlocked && (
           <>
-            <div className="bg-gradient-to-br from-blue-700 to-indigo-600 text-white rounded-2xl w-full p-6 shadow-lg relative text-left">
-              <div className="text-sm mb-1">AutoRefinance</div>
-              <div className="text-lg font-semibold tracking-widest mb-6">{cardData.number}</div>
-              <div className="flex justify-between text-xs mb-2">
+            <div className="bg-gradient-to-br from-blue-800 to-indigo-700 text-white rounded-xl p-6 shadow-lg relative">
+              <div className="text-sm">AutoRefinance</div>
+              <div className="text-xl font-mono tracking-widest my-4">{cardData.number}</div>
+
+              <div className="flex justify-between text-xs mb-4">
                 <div>
-                  <div className="uppercase text-gray-200 text-[10px]">Cardholder</div>
+                  <div className="uppercase text-gray-300 text-[10px]">Cardholder</div>
                   <div className="font-medium text-sm">{cardData.name}</div>
                 </div>
                 <div>
-                  <div className="uppercase text-gray-200 text-[10px]">Exp</div>
+                  <div className="uppercase text-gray-300 text-[10px]">Exp</div>
                   <div className="font-medium text-sm">{cardData.expiry}</div>
                 </div>
                 <div>
-                  <div className="uppercase text-gray-200 text-[10px]">CVV</div>
+                  <div className="uppercase text-gray-300 text-[10px]">CVV</div>
                   <div className="font-medium text-sm">{cardData.cvv}</div>
                 </div>
               </div>
+
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
                 alt="Mastercard"
-                className="w-12 absolute bottom-4 right-4"
+                className="w-10 absolute bottom-4 right-4"
               />
             </div>
 
-            <div className="flex flex-col items-center gap-3 mt-5 text-sm">
+            <div className="grid grid-cols-1 gap-3 mt-6 text-sm">
               {["number", "expiry", "cvv"].map((field) => (
                 <button
                   key={field}
-                  className="border border-gray-300 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 w-full"
                   onClick={() => handleCopy(field, cardData[field])}
+                  className="border border-gray-300 text-gray-700 py-2 rounded-md hover:bg-gray-100 transition"
                 >
                   {copiedField === field ? "Copied!" : `Copy ${field.toUpperCase()}`}
                 </button>
               ))}
               <button
-                className="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700 w-full"
+                className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
                 onClick={() => alert("Card pushed to Apple Wallet / Google Pay")}
               >
                 Add to Apple Wallet / Google Pay
@@ -310,15 +312,6 @@ function VirtualCard() {
             </div>
           </>
         )}
-      </div>
-
-      <div className="mt-6 text-sm text-gray-600 text-left max-w-md">
-        <h3 className="font-semibold mb-2">Next Steps:</h3>
-        <ul className="list-disc list-inside space-y-1">
-          <li>✔ Accept the new loan terms</li>
-          <li>✔ Unlock your virtual card</li>
-          <li>✔ Use the card to pay off your old loan</li>
-        </ul>
       </div>
     </div>
   );
