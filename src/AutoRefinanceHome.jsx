@@ -212,22 +212,38 @@ function StatusScreen() {
 }
 
 // 💳 Virtual Card Screen
+import { useState } from "react";
+
 function VirtualCard() {
+  const [showDetails, setShowDetails] = useState(false);
+  const cardNumber = "1234 5678 9012 3456";
+  const expiry = "12/27";
+  const cvv = "123";
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
-      <div className="bg-gradient-to-br from-blue-700 to-indigo-600 text-white rounded-2xl w-full max-w-sm p-6 shadow-lg relative">
-        <div className="text-sm mb-1">AutoRefinance</div>
-        <div className="text-lg font-semibold tracking-widest mb-6">1234 5678 9012 3456</div>
-        <div className="flex justify-between text-xs mb-2">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-4">
+      {/* Card Container */}
+      <div className="bg-gradient-to-br from-indigo-700 to-blue-600 text-white rounded-2xl w-full max-w-sm p-6 shadow-2xl relative">
+        <div className="text-sm uppercase tracking-widest mb-2">AutoRefinance</div>
+        <div className="text-2xl font-semibold tracking-widest mb-6">
+          {showDetails ? cardNumber : "•••• •••• •••• ••••"}
+        </div>
+
+        <div className="flex justify-between text-xs mb-4">
           <div>
             <div className="uppercase text-gray-200 text-[10px]">Cardholder</div>
             <div className="font-medium text-sm">Keith Stone</div>
           </div>
           <div>
             <div className="uppercase text-gray-200 text-[10px]">Exp</div>
-            <div className="font-medium text-sm">12/27</div>
+            <div className="font-medium text-sm">{showDetails ? expiry : "••/••"}</div>
+          </div>
+          <div>
+            <div className="uppercase text-gray-200 text-[10px]">CVV</div>
+            <div className="font-medium text-sm">{showDetails ? cvv : "•••"}</div>
           </div>
         </div>
+
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
           alt="Mastercard"
@@ -235,24 +251,53 @@ function VirtualCard() {
         />
       </div>
 
-      <div className="mt-8 text-center text-gray-700 text-sm max-w-xs">
+      {/* Instructions */}
+      <div className="mt-6 text-center text-gray-700 text-sm max-w-sm">
         This virtual card can only be used to pay off your existing auto loan. It works exclusively with verified auto dealerships.
       </div>
 
-      <div className="flex flex-col items-center gap-3 mt-6">
-        <button className="bg-blue-600 text-white px-5 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
-          Add to Apple Wallet / Google Pay
-        </button>
+      {/* Actions */}
+      <div className="flex flex-col items-center gap-3 mt-6 w-full max-w-sm">
         <button
-          className="border border-gray-300 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100"
-          onClick={() => navigator.clipboard.writeText("1234 5678 9012 3456")}
+          onClick={() => setShowDetails(!showDetails)}
+          className="text-blue-600 underline text-sm"
         >
-          Copy Card Number
+          {showDetails ? "Hide Card Details" : "Show Card Details"}
         </button>
+
+        <div className="grid grid-cols-2 gap-3 w-full">
+          <button
+            className="border border-gray-300 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100"
+            onClick={() => navigator.clipboard.writeText(cardNumber)}
+          >
+            Copy Number
+          </button>
+          <button
+            className="border border-gray-300 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100"
+            onClick={() => navigator.clipboard.writeText(expiry)}
+          >
+            Copy Expiry
+          </button>
+          <button
+            className="border border-gray-300 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100"
+            onClick={() => navigator.clipboard.writeText(cvv)}
+          >
+            Copy CVV
+          </button>
+          <button
+            className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 col-span-2"
+            onClick={() => alert("Pushed to Apple Wallet / Google Pay (simulated)")}
+          >
+            Add to Wallet
+          </button>
+        </div>
       </div>
     </div>
   );
 }
+
+export default VirtualCard;
+
 
 // 📜 Transactions + Rewards
 function TransactionHistory() {
