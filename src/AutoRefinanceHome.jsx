@@ -79,7 +79,7 @@ function HomeScreen() {
 
       <div className="bg-blue-50 border-l-4 border-blue-500 p-4 text-left max-w-xl mb-8 rounded-md shadow-sm">
         <p className="italic text-gray-800">“I couldn’t believe how fast it was to refinance. I paid off my high-rate loan using the virtual card, and my credit union gave me a much better rate. Earning rewards for paying back? That’s a win-win.”</p>
-        <p className="mt-2 text-sm text-blue-800 font-semibold">– Debbie Stone., ABCU Member</p>
+        <p className="mt-2 text-sm text-blue-800 font-semibold">– Debbie Stone, ABCU Member</p>
       </div>
 
       <Link
