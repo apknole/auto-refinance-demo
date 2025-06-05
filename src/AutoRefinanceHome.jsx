@@ -97,30 +97,30 @@ function LoadingScreen() {
     <div className="flex flex-col items-center justify-center h-screen bg-white text-center px-4 overflow-hidden">
       <h1 className="text-3xl md:text-4xl font-bold mb-3">We're processing your application</h1>
       <p className="text-gray-600 mb-10 text-lg max-w-md">
-        Hang tight! Matching you with the best refinance offer.
+        Hang tight! We're gathering your data and your credit union is making a decision.
       </p>
       <div className="relative w-full max-w-lg h-32">
-        <div className="absolute animate-car1 text-4xl">🚗</div>
-        <div className="absolute animate-car2 text-4xl">🚙</div>
-        <div className="absolute animate-car3 text-4xl">🚕</div>
+        <div className="absolute animate-car1 text-4xl transform -scale-x-100">🚗</div>
+        <div className="absolute animate-car2 text-4xl transform -scale-x-100">🚙</div>
+        <div className="absolute animate-car3 text-4xl transform -scale-x-100">🚕</div>
       </div>
       <style>
         {`
           @keyframes car1 {
-            0% { left: -10%; top: 0; }
+            0% { left: 110%; top: 0; }
             50% { left: 50%; top: 5%; }
-            100% { left: 110%; top: 0; }
+            100% { left: -10%; top: 0; }
           }
           @keyframes car2 {
-            0% { left: -10%; top: 40%; }
-            30% { left: 35%; top: 42%; }
-            80% { left: 90%; top: 35%; }
-            100% { left: 110%; top: 40%; }
+            0% { left: 110%; top: 40%; }
+            30% { left: 65%; top: 42%; }
+            80% { left: 10%; top: 35%; }
+            100% { left: -10%; top: 40%; }
           }
           @keyframes car3 {
-            0% { left: -10%; top: 70%; }
-            60% { left: 70%; top: 65%; }
-            100% { left: 110%; top: 70%; }
+            0% { left: 110%; top: 70%; }
+            60% { left: 30%; top: 65%; }
+            100% { left: -10%; top: 70%; }
           }
           .animate-car1 {
             animation: car1 3s ease-in-out forwards;
