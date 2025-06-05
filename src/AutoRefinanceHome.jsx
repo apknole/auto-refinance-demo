@@ -71,7 +71,7 @@ function HomeScreen() {
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-left max-w-xl mb-8 shadow-sm">
         <h2 className="text-lg font-semibold mb-2">How it works 🚗</h2>
         <ol className="list-decimal list-inside space-y-2 text-gray-700">
-          <li>🔗 Connect your current loan and apply in minutes</li>
+          <li>🔗 Connect your data and automatically apply</li>
           <li>💳 Use your virtual card to pay off your old loan</li>
           <li>🎉 Make repayments on your new loan and earn rewards</li>
         </ol>
