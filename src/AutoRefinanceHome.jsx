@@ -106,7 +106,7 @@ function ConsentScreen() {
   };
 
   return (
-    <<div className="flex flex-col items-center justify-start min-h-screen text-center px-4 pt-10 pb-6 md:pt-6 md:pb-4">
+    <div className="flex flex-col items-center justify-start min-h-screen text-center px-4 pt-10 pb-6 md:pt-6 md:pb-4">
       <h1 className="text-3xl font-bold mb-4">Consent to Share Data</h1>
       <p className="text-gray-600 max-w-md mb-6">
         By continuing, you agree to share your past debt repayment and savings data with our trusted credit union partner to explore refinance options.
