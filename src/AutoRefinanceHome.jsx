@@ -22,6 +22,7 @@ export default function AutoRefinanceHome() {
   );
 }
 
+
 // 📱 Responsive Header
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -89,6 +90,18 @@ function HomeScreen() {
       </Link>
 
       <p className="mt-6 text-sm text-gray-500">In partnership with your trusted Credit Union 🏦</p>
+    </div>
+  );
+}
+
+// 📱 Consent Screen
+function ConsentScreen() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
+      <h1 className="text-3xl font-bold mb-4">Consent to Share Data</h1>
+      <p className="text-gray-600 max-w-md">
+        By continuing, you agree to share your auto loan data with our trusted credit union partner to explore refinance options.
+      </p>
     </div>
   );
 }
