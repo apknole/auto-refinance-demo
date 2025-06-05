@@ -410,8 +410,10 @@ function VirtualCard() {
 // 📜 Transactions + Rewards
 function TransactionHistory() {
   const transactions = [
-    { id: 1, merchant: "Chase Auto Loan", amount: "$6,500", reward: "$20", date: "2024-12-01" },
-    { id: 2, merchant: "Capital One Auto Finance", amount: "$4,200", reward: "$15", date: "2025-01-10" },
+    { id: 1, merchant: "Chase Auto Loan Pay Off", amount: "$12,500", reward: "$20", date: "2025-06-04" },
+    { id: 2, merchant: "Payment to ABCU", amount: "$379.50", reward: "$15", date: "2025-07-15" },
+    { id: 2, merchant: "Payment to ABCU", amount: "$379.50", reward: "$15", date: "2025-08-15" },
+    { id: 2, merchant: "Payment to ABCU", amount: "$379.50", reward: "$15", date: "2025-09-15" },
   ];
 
   return (
