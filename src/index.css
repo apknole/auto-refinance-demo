@@ -1,11 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@keyframes carDrive {
-  0% { left: -100px; transform: translateY(-50%); }
-  100% { left: 100%; transform: translateY(-50%); }
+@keyframes car-move {
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
-.animate-carDrive {
-  animation: carDrive 3s linear forwards;
+.animate-car-move {
+  animation: car-move 5s linear infinite;
 }
