@@ -213,105 +213,97 @@ function StatusScreen() {
 
 // 💳 Virtual Card Screen
 function VirtualCard() {
-  const [copiedField, setCopiedField] = useState(null);
-  const [showDetails, setShowDetails] = useState(false);
-  const [termsAccepted, setTermsAccepted] = useState(false);
-  const [cardUnlocked, setCardUnlocked] = useState(false);
-
+  const [cardVisible, setCardVisible] = useState(false);
+  const [copiedField, setCopiedField] = useState("");
   const cardData = {
     number: "1234 5678 9012 3456",
-    expiry: "12/27",
+    exp: "12/27",
     cvv: "123",
     name: "Keith Stone",
     balance: "$12,500.00",
-    rate: "5.49%",
-    term: "60 months",
-    estMonthly: "$238.45"
   };
 
   const handleCopy = (field, value) => {
     navigator.clipboard.writeText(value);
     setCopiedField(field);
-    setTimeout(() => setCopiedField(null), 1500);
+    setTimeout(() => setCopiedField(""), 2000);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4 py-10">
-      <div className="bg-white/80 backdrop-blur-lg p-8 rounded-2xl shadow-xl w-full max-w-lg text-center space-y-6 border border-white/50">
-        <h2 className="text-3xl font-bold text-gray-900">Your Refinance Offer</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4 py-10">
+      <div className="text-center mb-6">
+        <p className="text-gray-600 text-sm mb-1">Available to Pay Off Existing Loan</p>
+        <p className="text-4xl font-bold text-green-700">{cardData.balance}</p>
+      </div>
 
-        <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-left text-gray-700">
-          <p><strong>Balance:</strong> {cardData.balance}</p>
-          <p><strong>Rate:</strong> {cardData.rate}</p>
-          <p><strong>Term:</strong> {cardData.term}</p>
-          <p><strong>Monthly:</strong> {cardData.estMonthly}</p>
+      <div className="bg-gradient-to-br from-blue-800 to-indigo-700 text-white rounded-xl w-full max-w-sm p-6 shadow-lg relative mb-6">
+        <div className="text-sm mb-1">AutoRefinance</div>
+        <div className="text-lg font-semibold tracking-widest mb-4">
+          {cardVisible ? cardData.number : "•••• •••• •••• ••••"}
         </div>
-
-        {!termsAccepted && (
-          <button
-            onClick={() => setTermsAccepted(true)}
-            className="w-full bg-blue-600 text-white py-3 rounded-md font-medium hover:bg-blue-700 transition"
-          >
-            Accept Loan Terms
-          </button>
-        )}
-
-        {termsAccepted && !cardUnlocked && (
-          <button
-            onClick={() => setCardUnlocked(true)}
-            className="w-full bg-green-600 text-white py-3 rounded-md font-medium hover:bg-green-700 transition"
-          >
-            Unlock Card
-          </button>
-        )}
-
-        {cardUnlocked && (
-          <>
-            <div className="bg-gradient-to-br from-blue-800 to-indigo-700 text-white rounded-xl p-6 shadow-lg relative">
-              <div className="text-sm">AutoRefinance</div>
-              <div className="text-xl font-mono tracking-widest my-4">{cardData.number}</div>
-
-              <div className="flex justify-between text-xs mb-4">
-                <div>
-                  <div className="uppercase text-gray-300 text-[10px]">Cardholder</div>
-                  <div className="font-medium text-sm">{cardData.name}</div>
-                </div>
-                <div>
-                  <div className="uppercase text-gray-300 text-[10px]">Exp</div>
-                  <div className="font-medium text-sm">{cardData.expiry}</div>
-                </div>
-                <div>
-                  <div className="uppercase text-gray-300 text-[10px]">CVV</div>
-                  <div className="font-medium text-sm">{cardData.cvv}</div>
-                </div>
-              </div>
-
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
-                alt="Mastercard"
-                className="w-10 absolute bottom-4 right-4"
-              />
+        <div className="flex justify-between text-xs mb-4">
+          <div>
+            <div className="uppercase text-gray-300 text-[10px]">Cardholder</div>
+            <div className="font-medium text-sm">
+              {cardVisible ? cardData.name : "••••••••••"}
             </div>
-
-            <div className="grid grid-cols-1 gap-3 mt-6 text-sm">
-              {["number", "expiry", "cvv"].map((field) => (
-                <button
-                  key={field}
-                  onClick={() => handleCopy(field, cardData[field])}
-                  className="border border-gray-300 text-gray-700 py-2 rounded-md hover:bg-gray-100 transition"
-                >
-                  {copiedField === field ? "Copied!" : `Copy ${field.toUpperCase()}`}
-                </button>
-              ))}
-              <button
-                className="bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
-                onClick={() => alert("Card pushed to Apple Wallet / Google Pay")}
-              >
-                Add to Apple Wallet / Google Pay
-              </button>
+          </div>
+          <div>
+            <div className="uppercase text-gray-300 text-[10px]">Exp / CVV</div>
+            <div className="font-medium text-sm">
+              {cardVisible ? `${cardData.exp} / ${cardData.cvv}` : "••/•• •••"}
             </div>
-          </>
-        )}
+          </div>
+        </div>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png"
+          alt="Mastercard"
+          className="w-12 absolute bottom-4 right-4"
+        />
+      </div>
+
+      <div className="grid gap-3 w-full max-w-sm">
+        <button
+          className="bg-blue-600 text-white py-2 rounded-md text-sm hover:bg-blue-700"
+          onClick={() => setCardVisible(!cardVisible)}
+        >
+          {cardVisible ? "Hide Card Info" : "Show Card Info"}
+        </button>
+
+        <button
+          onClick={() => handleCopy("number", cardData.number)}
+          className="border border-gray-300 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100"
+        >
+          {copiedField === "number" ? "Card Number Copied!" : "Copy Card Number"}
+        </button>
+
+        <button
+          onClick={() => handleCopy("cvv", cardData.cvv)}
+          className="border border-gray-300 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100"
+        >
+          {copiedField === "cvv" ? "CVV Copied!" : "Copy CVV"}
+        </button>
+
+        <button
+          onClick={() => handleCopy("exp", cardData.exp)}
+          className="border border-gray-300 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-100"
+        >
+          {copiedField === "exp" ? "Expiry Date Copied!" : "Copy Expiry Date"}
+        </button>
+
+        <button
+          className="bg-black text-white py-2 rounded-md text-sm hover:opacity-90"
+          onClick={() => alert("Pushed to Apple Wallet!")}
+        >
+          Add to Apple Wallet
+        </button>
+
+        <button
+          className="bg-green-600 text-white py-2 rounded-md text-sm hover:bg-green-700"
+          onClick={() => alert("Pushed to Google Pay!")}
+        >
+          Add to Google Pay
+        </button>
       </div>
     </div>
   );
