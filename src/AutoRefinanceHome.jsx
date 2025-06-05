@@ -68,6 +68,13 @@ function HomeScreen() {
         <p>✅ Earn rewards for on-time payments 🎁</p>
       </div>
 
+      <Link
+        to="/application"
+        className="bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-700"
+      >
+        Start Application
+      </Link>
+
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-left max-w-xl mb-8 shadow-sm">
         <h2 className="text-lg font-semibold mb-2">How it works 🚗</h2>
         <ol className="list-decimal list-inside space-y-2 text-gray-700">
@@ -82,13 +89,6 @@ function HomeScreen() {
         <p className="italic text-gray-800">“I couldn’t believe how fast it was to refinance. I paid off my high-rate loan using the virtual card, and my credit union gave me a much better rate. Earning rewards for paying back? That’s a win-win.”</p>
         <p className="mt-2 text-sm text-blue-800 font-semibold">– Debbie Stone, ABCU Member</p>
       </div>
-
-      <Link
-        to="/application"
-        className="bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-700"
-      >
-        Start Application
-      </Link>
 
       <p className="mt-6 text-sm text-gray-500">In partnership with your trusted Credit Union 🏦</p>
     </div>
