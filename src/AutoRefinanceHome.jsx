@@ -83,9 +83,22 @@ function ConsentScreen() {
 // ⏳ Loading Screen (stub)
 function LoadingScreen() {
   const navigate = useNavigate();
-  setTimeout(() => navigate("/status"), 2000);
+
+  // Redirect after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => navigate("/status"), 3000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
   return (
-    <div className="flex items-center justify-center min-h-screen text-lg font-medium">Checking your loan details...</div>
+    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+      <div className="relative w-full max-w-md h-40 overflow-hidden">
+        <div className="absolute top-1/2 left-[-100px] animate-carDrive">
+          <span role="img" aria-label="car" className="text-4xl">🚗</span>
+        </div>
+        <p className="text-center mt-32 text-lg text-gray-600">Finding your auto loan details...</p>
+      </div>
+    </div>
   );
 }
 
