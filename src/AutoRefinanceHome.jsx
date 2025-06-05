@@ -233,35 +233,34 @@ function VirtualCard() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4 py-10">
-      <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold mb-2">Loan Offer Summary</h1>
-        <p className="text-gray-700 max-w-md text-sm mb-4">
-          ✅ Refinance amount: <strong>{cardData.balance}</strong><br />
-          ✅ New interest rate: <strong>5.99% APR</strong><br />
-          ✅ Term: <strong>36 months</strong><br />
-          ✅ Monthly payment: <strong>$379.50</strong><br />
-        </p>
-
-        {!acceptedTerms && (
-          <>
-            <p className="text-sm text-gray-600 mb-4">
-              Please review and accept the terms to unlock your virtual card.
-            </p>
-            <button
-              className="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700"
-              onClick={() => setAcceptedTerms(true)}
-            >
-              Accept Terms and Unlock Card
-            </button>
-          </>
-        )}
-      </div>
+      {!acceptedTerms && (
+        <div className="text-center mb-8">
+          <h1 className="text-2xl font-bold mb-2">Loan Offer Summary</h1>
+          <p className="text-gray-700 max-w-md text-sm mb-4">
+            ✅ Refinance amount: <strong>{cardData.balance}</strong><br />
+            ✅ New interest rate: <strong>5.99% APR</strong><br />
+            ✅ Term: <strong>36 months</strong><br />
+            ✅ Monthly payment: <strong>$379.50</strong><br />
+          </p>
+          <p className="text-sm text-gray-600 mb-4">
+            Please review and accept the terms to unlock your virtual card.
+          </p>
+          <button
+            className="bg-blue-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-blue-700"
+            onClick={() => setAcceptedTerms(true)}
+          >
+            Accept Terms and Unlock Card
+          </button>
+        </div>
+      )}
 
       {acceptedTerms && (
         <>
           <div className="text-center mb-6">
-            <p className="text-gray-600 text-sm mb-1">Available to Pay Off Existing Loan</p>
             <p className="text-4xl font-bold text-green-700">{cardData.balance}</p>
+            <p className="text-lg font-medium text-gray-700 mt-1">
+              Available to Pay Off Existing Loan
+            </p>
           </div>
 
           <div className="bg-gradient-to-br from-blue-800 to-indigo-700 text-white rounded-xl w-full max-w-sm p-6 shadow-lg relative mb-6">
