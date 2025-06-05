@@ -82,18 +82,49 @@ function ConsentScreen() {
 
 // ⏳ Loading Screen (stub)
 function LoadingScreen() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate("/status");
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-blue-50 px-4 text-center">
-      <div className="text-2xl font-semibold mb-6">We're matching you with the best auto refinance offer...</div>
-      <div className="relative w-full max-w-md h-32 overflow-hidden">
-        <div className="absolute left-[-100px] animate-car-move">
-          <img src="https://cdn-icons-png.flaticon.com/512/743/743007.png" alt="Car" className="w-20 h-20" />
+    <div className="flex flex-col items-center justify-center h-screen bg-white text-center px-4">
+      <p className="text-xl font-semibold mb-6">We're processing your application</p>
+      <div className="relative w-full max-w-md h-24 overflow-hidden">
+        <div className="absolute bottom-0 left-[-200px] animate-drive">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 32"
+            className="w-32 h-16 text-blue-600 fill-current"
+          >
+            <circle cx="16" cy="28" r="4" />
+            <circle cx="48" cy="28" r="4" />
+            <rect x="8" y="12" width="48" height="12" rx="3" />
+            <rect x="18" y="6" width="16" height="8" rx="2" />
+          </svg>
         </div>
       </div>
-      <div className="text-sm text-gray-500 mt-4">Hang tight — this should only take a few seconds.</div>
+      <style>
+        {`
+          @keyframes drive {
+            0% { left: -200px; }
+            100% { left: 100%; }
+          }
+          .animate-drive {
+            animation: drive 3s linear forwards;
+          }
+        `}
+      </style>
     </div>
   );
 }
+
+export default LoadingScreen;
+
 
 // 🎉 Approval Screen
 function StatusScreen() {
