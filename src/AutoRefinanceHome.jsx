@@ -96,11 +96,44 @@ function HomeScreen() {
 
 // 📱 Consent Screen
 function ConsentScreen() {
+  const [consentGiven, setConsentGiven] = useState(false);
+  const navigate = useNavigate();
+
+  const handleContinue = () => {
+    if (consentGiven) {
+      navigate("/loading");
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
       <h1 className="text-3xl font-bold mb-4">Consent to Share Data</h1>
-      <p className="text-gray-600 max-w-md">
-        By continuing, you agree to share your auto loan data with our trusted credit union partner to explore refinance options.
+      <p className="text-gray-600 max-w-md mb-6">
+        By continuing, you agree to share your past debt repayment and savings data with our trusted credit union partner to explore refinance options.
+      </p>
+      
+      <label className="flex items-center gap-2 text-sm text-gray-700 mb-4">
+        <input
+          type="checkbox"
+          checked={consentGiven}
+          onChange={(e) => setConsentGiven(e.target.checked)}
+          className="accent-blue-600"
+        />
+        I agree to share my data
+      </label>
+
+      <button
+        onClick={handleContinue}
+        disabled={!consentGiven}
+        className={`px-6 py-3 rounded-md text-white text-sm font-medium ${
+          consentGiven ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 cursor-not-allowed"
+        }`}
+      >
+        Continue
+      </button>
+
+      <p className="mt-6 text-sm text-blue-600 underline cursor-pointer">
+        Learn how we use your data
       </p>
     </div>
   );
