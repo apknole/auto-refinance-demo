@@ -56,26 +56,39 @@ function HomeScreen() {
   return (
     <div className="flex flex-col items-center justify-center text-center px-4 py-20">
       <h1 className="text-3xl md:text-5xl font-bold mb-6">Lower Your Car Payment. In Minutes.</h1>
-      <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-xl">
-        Secure a better auto loan and get rewarded every time you repay.
+
+      <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-xl">
+        Refinance your high-interest auto loan with ease and keep more money in your pocket. 💸
       </p>
-      <Link to="/application" className="bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-700">
+
+      <div className="text-left text-gray-600 max-w-xl space-y-2 mb-8">
+        <p>✅ Pay less interest on your current loan</p>
+        <p>✅ Improve your overall financial health 💪</p>
+        <p>✅ Earn rewards every time you repay on time 🎁</p>
+      </div>
+
+      <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-left max-w-xl mb-8 shadow-sm">
+        <h2 className="text-lg font-semibold mb-2">How it works 🚗</h2>
+        <ol className="list-decimal list-inside space-y-2 text-gray-700">
+          <li>🔗 Connect your current loan and apply in minutes</li>
+          <li>💳 Use your virtual card to pay off your old loan</li>
+          <li>🎉 Make repayments on your new loan and earn rewards</li>
+        </ol>
+      </div>
+
+      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 text-left max-w-xl mb-8 rounded-md shadow-sm">
+        <p className="italic text-gray-800">“I couldn’t believe how fast it was to refinance. I paid off my high-rate loan using the virtual card, and my credit union gave me a much better rate. Earning rewards for paying back? That’s a win-win.”</p>
+        <p className="mt-2 text-sm text-blue-800 font-semibold">– Maria R., Happy Member</p>
+      </div>
+
+      <Link
+        to="/application"
+        className="bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-700"
+      >
         Start Application
       </Link>
-    </div>
-  );
-}
 
-// ✅ Consent Screen (stub)
-function ConsentScreen() {
-  const navigate = useNavigate();
-  return (
-    <div className="flex flex-col items-center px-4 py-20 text-center">
-      <h2 className="text-2xl font-bold mb-4">Consent to Connect Your Auto Loan</h2>
-      <p className="text-gray-600 mb-6 max-w-lg">We’ll find your existing auto loan to help you refinance it instantly.</p>
-      <button onClick={() => navigate("/loading")} className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">
-        Connect Account
-      </button>
+      <p className="mt-6 text-sm text-gray-500">In partnership with your trusted Credit Union 🏦</p>
     </div>
   );
 }
